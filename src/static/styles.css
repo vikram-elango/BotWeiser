@@ -1,0 +1,164 @@
+html{
+  font-family: "Noto Sans";
+
+}
+
+
+
+body {
+  font-family: "Noto Sans";
+}
+
+.navbar {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: var(--gray-950, hsla(236.66666666666669, 34.62%, 10.20%, 1.00));
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  body {
+      font-size: 14px; 
+  }
+
+  .navbar {
+      padding: 5px 10px; 
+  }
+
+}
+
+
+.button-hover{
+  color: hsla(252.15686274509804, 100.00%, 70.00%, 1.00);
+  transition: all 0.3s ease;
+
+}
+
+.button-hover:hover{
+  color:white;
+  transition: all 0.3s ease;
+
+}
+
+
+
+
+.navbar a {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+
+  transition: background-color 0.5s, backdrop-filter 0.5s; 
+}
+
+.homepage {
+  background: var(--gray-950, hsla(236.66666666666669, 34.62%, 10.20%, 1.00));
+}
+
+
+.download:hover {
+  background-color: white;
+  color: black;
+}
+
+.picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 40px;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  min-width: 0;
+  height: 80vh;
+  padding-top: 100px;
+}
+
+.name {
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
+  color: white;
+  margin-left: 100px;
+}
+.position{
+  font-size: 52px;
+  font-weight: bold;
+  text-align: left;
+  width: 800px;
+  color:hsla(252.15686274509804, 100.00%, 70.00%, 1.00);
+  line-height: 1.4;
+  margin-bottom: 40px;
+  margin-left: 100px;
+
+}
+
+.Intro {
+  padding-right: 100px;
+  line-height: 1.5;
+  text-align: left;
+  font-size: 18px;
+  margin-left: 100px;
+  width: 800px;
+
+
+}
+.body-center{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.introduction {
+  flex: 1;
+  min-width: 0;
+  height: 80vh;
+  color: white;
+  padding-top: 100px;
+  line-height: 100px;
+
+}
+
+
+
+
+.icons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  padding-left: 100px;
+
+}
+
+
+
+.skills {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center; 
+  flex: 1;
+  min-width: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.about {
+  background: var(--gray-950, #111827);
+  border-radius: 12px;
+}
+

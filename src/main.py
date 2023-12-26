@@ -1,6 +1,6 @@
 from unittest import mock
 from flask import Flask, render_template, request
-from test import bots_list, generate_prompt_with_examples, client
+# from test import bots_list, generate_prompt_with_examples, client
 import webbrowser
 import threading
 import os
@@ -31,17 +31,17 @@ def index():
 
     recommended_bots = []  
     if request.method == 'POST':
-        user_requirement = request.form['requirement']
-        concise_prompt = generate_prompt_with_examples(user_requirement, bots_list)
+        # user_requirement = request.form['requirement']
+        # concise_prompt = generate_prompt_with_examples(user_requirement, bots_list)
 
-        ai_response = client.chat.completions.create(
-            model="gpt-4-1106-preview",
-            messages=[{"role": "system", "content": concise_prompt}],
-            max_tokens=3000
-        )
+        # ai_response = client.chat.completions.create(
+        #     model="gpt-4-1106-preview",
+        #     messages=[{"role": "system", "content": concise_prompt}],
+        #     max_tokens=3000
+        # )
         
-        formatted_response = ai_response.choices[0].message.content  
-        # formatted_response = mock_response
+        # formatted_response = ai_response.choices[0].message.content  
+        formatted_response = mock_response
    
         bot_sections = formatted_response.split('\n\n')
         

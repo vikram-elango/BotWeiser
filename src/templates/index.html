@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+        <title>BotWeiser</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+
+
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="logo-link"><img src="{{ url_for('static', filename='images/forta_white.png') }}" alt="Logo" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a href="https://app.forta.network/pools?search=" class="nav-item" target="_blank">Pools</a>
+            <a href="/" class="nav-item">Bots</a> 
+            <a href="https://app.forta.network/alerts" class="nav-item" target="_blank">Alerts</a>
+            <a href="https://app.forta.network/network" class="nav-item" target="_blank">Network</a>
+            <a href="https://docs.forta.network/en/latest/?_gl=1*krzylw*_ga*MTYyMzA4MDA0OS4xNzAxNTgzNDQy*_ga_3ERDDVRGQQ*MTcwMTY4NTg0Mi40LjEuMTcwMTY4NTk1OS4wLjAuMA.." class="nav-item" target="_blank">Docs</a>
+        </div>
+        
+    </nav>
+
+    <h1 class="header">Detection <span class="purple-text">Bots</span></h1>
+    <p class="description">Forta comprises a decentralized network of independent bots that scan all transactions and block-by-block state changes for threats and anomalies. When an issue is detected, scan bots send alerts to subscribers, which enables them to take action.</p>
+
+    <div class="search-container">
+        <form action="/" method="post" class="search-form">
+            <input type="text" id="requirement" name="requirement" class="search-input" placeholder="" value="{{ user_requirement }}">
+            <button type="submit" class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"></path>
+                </svg>
+            </button>
+        </form>
+    </div>
+
+    <div class="cards-container">
+        {% if recommended_bots %}
+            {% for bot in recommended_bots %}
+        <a href="https://app.forta.network/bot/{{ bot['Bot ID'] }}" class="bot-card-link" target="_blank">
+            <div class="bot-card">
+                <div class="card-header">
+                    {{ bot['Bot Name'] }} 
+                </div>
+                <div class="bot-detail">
+                    <div class="fields"><strong >Bot ID:</strong> <span>{{ bot['Bot ID'] }}</span>
+                    </div>
+                    <div class="fields"><strong>Developer Name:</strong> <span>{{ bot['Developer Name'] }}</span></div>
+                    
+                    <div class="fields">
+                        <strong> Reason:</strong> <span>{{ bot['Reason'] }}</span>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </a>
+    {% endfor %}
+    
+        {% else %}
+            <p class="response">{{ response }}</p>
+        {% endif %}
+    </div>
+    
+    <script>
+        const placeholders = [
+          'I want a bot that detects fradulent transactions.',
+          'Find me anomaly detection bots.',
+          'Look up security auditing bots.',
+          'Enter Bot or Developer Name/ID'
+        ];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newPlaceholderDelay = 1500; 
+      
+        function typePlaceholder(input, placeholder, index) {
+          if (index < placeholder.length) {
+            input.placeholder += placeholder[index++];
+            setTimeout(() => typePlaceholder(input, placeholder, index), typingDelay);
+          } else {
+            setTimeout(() => erasePlaceholder(input, placeholder), newPlaceholderDelay);
+          }
+        }
+      
+        function erasePlaceholder(input, placeholder) {
+          if (input.placeholder.length > 0) {
+            input.placeholder = input.placeholder.substring(0, input.placeholder.length - 1);
+            setTimeout(() => erasePlaceholder(input, placeholder), erasingDelay);
+          } else {
+            let nextPlaceholderIndex = (placeholders.indexOf(placeholder) + 1) % placeholders.length;
+            typePlaceholder(input, placeholders[nextPlaceholderIndex], 0);
+          }
+        }
+      
+        window.onload = () => {
+          const input = document.getElementById('requirement');
+          typePlaceholder(input, placeholders[0], 0);
+        };
+      </script>
+      
+    
+</body>
+</html>
