@@ -19,3 +19,7 @@ This Python-based application leverages OpenAI's GPT-4 to recommend web3 bots su
 4. **Flexible Query Handling**: The system is adept at understanding various types of queries, whether it’s a request for a specific bot by ID or name, or a more general inquiry about bot capabilities.
 
 This application serves as a valuable tool for users looking to navigate the complex landscape of web3 bots, providing clear and concise recommendations based on sophisticated AI analysis.
+
+
+## Home Page
+<img width="1511" alt="Screenshot 2023-12-25 at 4 43 10 PM" src="https://github.com/vikram-elango/BotWeiser/assets/83794714/fa3ce9be-a28b-45a1-aa64-a462b1ee67b2">
